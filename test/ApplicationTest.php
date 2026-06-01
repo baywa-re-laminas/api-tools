@@ -115,7 +115,7 @@ class ApplicationTest extends TestCase
         $events   = $this->app->getEventManager();
         $response = $this->prophesize(PhpEnvironment\Response::class)->reveal();
 
-        $events->attach('route', function ($e) {
+        $events->attach('route', function ($e): void {
             throw new Exception();
         });
 
@@ -124,16 +124,16 @@ class ApplicationTest extends TestCase
             return $response;
         });
 
-        $events->attach('dispatch', function ($e) {
+        $events->attach('dispatch', function ($e): void {
             $this->fail('dispatch event triggered when it should not be');
         });
 
-        $events->attach('render', function ($e) {
+        $events->attach('render', function ($e): void {
             $this->fail('render event triggered when it should not be');
         });
 
         $finishTriggered = false;
-        $events->attach('finish', function ($e) use (&$finishTriggered) {
+        $events->attach('finish', function ($e) use (&$finishTriggered): void {
             $finishTriggered = true;
         });
 
@@ -153,7 +153,7 @@ class ApplicationTest extends TestCase
         });
 
         $isStopPropagation = null;
-        $events->attach('finish', function (EventInterface $e) use (&$isStopPropagation) {
+        $events->attach('finish', function (EventInterface $e) use (&$isStopPropagation): void {
             $isStopPropagation = $e->propagationIsStopped();
         });
 
