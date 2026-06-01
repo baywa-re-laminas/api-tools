@@ -37,8 +37,7 @@
         "laminas-api-tools/api-tools-content-negotiation": "^1.8",
         "laminas-api-tools/api-tools-content-validation": "^1.12",
         "laminas-api-tools/api-tools-hal": "^1.10",
-        "laminas-api-tools/api-tools-mvc-auth": "^1.8",
-        "laminas-api-tools/api-tools-oauth2": "^1.9",
+        "laminas-api-tools/api-tools-mvc-auth": "^2.0",
         "laminas-api-tools/api-tools-provider": "^1.4",
         "laminas-api-tools/api-tools-rest": "^1.8",
         "laminas-api-tools/api-tools-rpc": "^1.8",
@@ -60,6 +59,16 @@
         "rector/rector": "^2.4",
         "vimeo/psalm": "^4.30"
     },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/baywa-re-laminas/api-tools-mvc-auth"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/baywa-re-laminas/api-tools-rest"
+        }
+    ],
     "suggest": {
         "alcaeus/mongo-php-adapter": "^1.0.5, if you are using ext/mongodb and wish to use the MongoConnectedListener.",
         "laminas-api-tools/api-tools-asset-manager": "^1.0, to install the assets used by api-tools-welcome and/or api-tools-admin-ui, until rwoverdijk/assetmanager 1.7 is released",
